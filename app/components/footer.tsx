@@ -12,61 +12,58 @@ function ArrowIcon() {
         fill="currentColor"
       />
     </svg>
-  )
+  );
 }
+
+const footerLinks = [
+  {
+    href: '/rss',
+    text: 'rss',
+    rel: 'noopener noreferrer'
+  },
+  {
+    href: 'https://github.com/aamirazad/aamira.me',
+    text: 'github',
+    rel: 'noopener noreferrer'
+  },
+  {
+    href: 'https://mastodon.social/@aamira',
+    text: 'mastodon',
+    rel: 'me'
+  },
+  {
+    href: 'https://aamira.me/.well-known/openpgpkey',
+    text: 'pgp',
+    rel: 'me'
+  },
+  {
+    href: 'https://bsky.app/profile/aamira.me',
+    text: 'bluesky',
+    rel: 'me'
+  }
+] as const;
 
 export default function Footer() {
   return (
     <footer className="mb-16">
       <ul className="font-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="/rss"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">rss</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://github.com/aamirazad/aamira.me"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">github</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
-            rel="me"
-            target="_blank"
-            href="https://mastodon.social/@aamira"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">mastodon</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
-            rel="me"
-            target="_blank"
-            href="https://aamira.me/.well-known/openpgpkey"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">pgp</p>
-          </a>
-        </li>
+        {footerLinks.map((link) => (
+          <li key={link.href}>
+            <a
+              className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+              rel={link.rel}
+              target="_blank"
+              href={link.href}
+            >
+              <ArrowIcon />
+              <p className="ml-2 h-7">{link.text}</p>
+            </a>
+          </li>
+        ))}
       </ul>
       <p className="mt-8 text-neutral-600 dark:text-neutral-300">
         © {new Date().getFullYear()} MIT Licensed
       </p>
     </footer>
-  )
+  );
 }
