@@ -13,6 +13,8 @@
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "eslint": "^9",
+    "eslint-config-next": "^15.1.7",
     "geist": "1.2.2",
     "litlyx-js": "^1.0.3",
     "lucide-react": "^0.475.0",
