@@ -12,7 +12,7 @@ export const useful = [
     text: "pgp",
   },
   {
-    href: "/email",
+    href: "mailto:aamirmazad@gmail.com",
     text: "email",
   },
   {

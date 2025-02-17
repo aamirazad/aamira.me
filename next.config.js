@@ -21,11 +21,6 @@ const nextConfig = {
         permanent: false,
       },
       {
-        source: "/email",
-        destination: "mailto:aamirmazad@gmail.com",
-        permanent: false,
-      },
-      {
         source: "/signal",
         destination:
           "https://signal.me/#eu/wD6CgW4YQr53JJtymXMQSHOGQJ-DS-TkO7R_Km1sZSoxmzM32c9Ga5DAc3vV2Is5",
