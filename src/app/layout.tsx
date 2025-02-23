@@ -8,8 +8,8 @@ import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "Next.js Portfolio Starter",
-    template: "%s | Next.js Portfolio Starter",
+    default: "Aamir Azad",
+    template: "Personal Site",
   },
   description: "This is my portfolio.",
   openGraph: {
