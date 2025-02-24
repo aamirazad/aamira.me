@@ -1,3 +1,13 @@
+import {
+  Bookmark,
+  Camera,
+  Code,
+  File,
+  ListCheck,
+  NotebookText,
+  Video,
+} from "lucide-react";
+
 export const useful = [
   {
     href: "/github",
@@ -75,5 +85,43 @@ export const projects = [
     href: "https://school.aamira.me/open-source",
     text: "Open Source Writeup",
     description: "A simple html static site about open source",
+  },
+];
+
+export const homelab = [
+  {
+    text: "Paperless-ngx",
+    href: "https://papers.aamira.me/",
+    icon: () => <NotebookText />,
+  },
+  {
+    text: "Immich",
+    href: "https://azadphotos.com/",
+    icon: () => <Camera />,
+  },
+  {
+    text: "Vikunja",
+    href: "https://tasks.aamira.me/",
+    icon: () => <ListCheck />,
+  },
+  {
+    text: "Forgejo",
+    href: "https://code.aamira.me/",
+    icon: () => <Code />,
+  },
+  {
+    text: "Jellyfin",
+    href: "https://jellyfin.aamira.me/",
+    icon: () => <Video />,
+  },
+  {
+    text: "Linkding",
+    href: "https://bookmarks.aamira.me/",
+    icon: () => <Bookmark />,
+  },
+  {
+    text: "Files",
+    href: "https://files.aamira.me/",
+    icon: () => <File />,
   },
 ];

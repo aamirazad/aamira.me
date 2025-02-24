@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { useful, projects } from "./links";
+import { useful, projects, homelab } from "./links";
 import { Badge } from "@/components/ui/badge";
 
 export default function Page() {
@@ -52,6 +52,24 @@ export default function Page() {
           </div>
         ))}
       </div>
+      <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+        Homelab
+      </h2>
+      <ul className="font-sm my-6 flex flex-col space-x-0 space-y-2 text-neutral-600 dark:text-neutral-300">
+        {homelab.map((link) => (
+          <li key={link.href}>
+            <a
+              className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+              rel="noopener noreferrer"
+              target="_blank"
+              href={link.href}
+            >
+              {link.icon ? link.icon() : <ArrowUpRight />}
+              <p className="ml-2 h-7">{link.text}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
