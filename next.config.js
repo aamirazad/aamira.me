@@ -31,6 +31,11 @@ const nextConfig = {
         destination: "/.well-known/openpgpkey",
         permanent: false,
       },
+      {
+        source: "/bycda",
+        destination: "https://hasd.dino.icu/category/5/bycda",
+        permanent: false,
+      },
     ];
   },
   async rewrites() {
