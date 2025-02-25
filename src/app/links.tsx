@@ -4,6 +4,7 @@ import {
   Code,
   File,
   ListCheck,
+  MessagesSquare,
   NotebookText,
   Video,
 } from "lucide-react";
@@ -93,6 +94,11 @@ export const homelab = [
     text: "Paperless-ngx",
     href: "https://papers.aamira.me/",
     icon: () => <NotebookText />,
+  },
+  {
+    text: "Forum",
+    href: "https://hasd.dino.icu/",
+    icon: () => <MessagesSquare />,
   },
   {
     text: "Immich",
