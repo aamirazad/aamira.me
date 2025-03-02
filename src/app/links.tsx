@@ -56,6 +56,13 @@ export const projects = [
     wip: true,
   },
   {
+    href: "https://tigertutoringtool.aamira.me/",
+    text: "Tigertutoringtool",
+    description:
+      "Written articles to help students in my class with their classes",
+    wip: false,
+  },
+  {
     href: "https://homelab-connector.aamira.me",
     text: "Homelab Connector",
     description:
