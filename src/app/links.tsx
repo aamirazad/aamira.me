@@ -138,3 +138,14 @@ export const homelab = [
     icon: () => <File />,
   },
 ];
+
+export const quick = [
+  {
+    text: "Manie Musical 2025",
+    href: "https://challonge.com/hasd_manie_musical_25",
+  },
+  {
+    text: "Manie Musical 2024",
+    href: "https://challonge.com/hasd_manie_musical_24",
+  },
+];

@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { useful, projects, homelab } from "./links";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -26,6 +27,12 @@ export default function Page() {
           </li>
         ))}
       </ul>
+      <Link
+        className="transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+        href="/quick"
+      >
+        More
+      </Link>
       <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
         Projects
       </h2>
