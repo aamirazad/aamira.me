@@ -1,6 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
 import { quick } from "../links";
-import { Badge } from "@/components/ui/badge";
 
 export default function Page() {
   return (
