@@ -36,43 +36,46 @@ const nextConfig = {
         destination: "https://hasd.dino.icu/category/5/bycda",
         permanent: false,
       },
-    ];
-  },
-  async rewrites() {
-    return [
       {
         source: "/.well-known/openpgpkey",
         destination: "/api/.well-known/openpgpkey",
+        permanent: false,
       },
       {
         source: "/outstanding-academic",
         destination:
           "https://papers.aamira.me/share/wyABSOjNExeQi4nBVfS10rMH4LBkvc8ppvxZdoroEfNY7V9ECF",
+        permanent: false,
       },
       {
         source: "/principals-award",
         destination:
           "https://papers.aamira.me/share/FFrlAJyx3DgTU7N3eFqW9mGKY1NukmXZNmQv4ztosV4Su7ZFhZ",
+        permanent: false,
       },
       {
-        source: "/perfect-attendence-2023",
+        source: "/perfect-attendance-2023",
         destination:
           "https://papers.aamira.me/share/PXPJTBMvauXaHVqwyqHtHhNF18n4ayakr8Uu0dUsOVmaArbyOd",
+        permanent: false,
       },
       {
         source: "/presidents-award",
         destination:
           "https://papers.aamira.me/share/hAZ5KImbXUlB3Ul03zV5YtSxY4Oo8XjGQNJk0b7SXvqLyt7yFj",
+        permanent: false,
       },
       {
         source: "/american-citizenship-award",
         destination:
           "https://papers.aamira.me/share/hWSsF4LSg5DJ4DaWQCoTi2a49X2pEodAeJSPqhHB5ER2NOA9qr",
+        permanent: false,
       },
       {
         source: "/profile-picture",
         destination:
           "https://azadphotos.com/api/assets/83900471-95e1-4f33-a032-e41531e7455f/thumbnail?size=preview&key=6Cy6QJLTizf6dILKFfjfm9SJcfZjmR-Dzbk1yIHZFOQwSkAOYrk4QY7LKa0wxOSazU8&c=Y2WyiAHtxlI37LaS42gHmgXhpnI%3D",
+        permanent: false,
       },
     ];
   },
