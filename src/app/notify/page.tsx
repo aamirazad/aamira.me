@@ -6,9 +6,9 @@ export default function JoinGroupForm() {
   return (
     // Use fixed positioning to cover the viewport and center content
     // Apply a base background matching the theme to cover the layout's background
-    <div className="fixed inset-0 z-10 flex items-center justify-center bg-white dark:bg-black p-4">
+    <div className="fixed inset-0 z-10 flex items-center justify-center bg-white dark:bg-[#191919] p-4">
       {/* Form container with its own background and shadow */}
-      <div className="w-full max-w-md bg-white dark:bg-[#191919] shadow-lg rounded-lg p-6 ">
+      <div className="w-full max-w-md shadow-lg rounded-lg p-6 ">
         <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 text-center">
           Subscribe to HASD Notify
         </h2>
