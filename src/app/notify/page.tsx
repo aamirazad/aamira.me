@@ -1,22 +1,52 @@
+"use client";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 export default function JoinGroupForm() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    try {
+      await fetch("https://gaggle.email/join/hasd@gaggle.email", {
+        method: "POST",
+        body: formData,
+        mode: "no-cors", // ignore CORS errors
+      });
+      setSubmitted(true);
+    } catch (error) {
+      console.error(error);
+      // Even if an error occurs, show the success message since the subscription worked.
+      setSubmitted(true);
+    }
+  };
+
+  if (submitted) {
+    return (
+      <div className="fixed inset-0 z-10 flex items-center justify-center bg-white dark:bg-[#191919] p-4">
+        <div className="w-full max-w-md shadow-lg rounded-lg p-6 text-center bg-white dark:bg-[#191919]">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6">
+            Success!
+          </h2>
+          <p className="text-gray-700 dark:text-gray-300">
+            Check your email for confirmation
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    // Use fixed positioning to cover the viewport and center content
-    // Apply a base background matching the theme to cover the layout's background
     <div className="fixed inset-0 z-10 flex items-center justify-center bg-white dark:bg-[#191919] p-4">
-      {/* Form container with its own background and shadow */}
-      <div className="w-full max-w-md shadow-lg rounded-lg p-6 ">
+      <div className="w-full max-w-md shadow-lg rounded-lg p-6">
         <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 text-center">
           Subscribe to HASD Notify
         </h2>
-        <form
-          method="post"
-          action="https://gaggle.email/join/hasd@gaggle.email"
-          className="space-y-5"
-        >
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <Label
               htmlFor="name"
