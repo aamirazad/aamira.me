@@ -27,6 +27,11 @@ const nextConfig = {
         permanent: false,
       },
       {
+        source: "/telegram",
+        destination: "https://t.me/aamirazad01",
+        permanent: false,
+      },
+      {
         source: "/pgp",
         destination: "/.well-known/openpgpkey",
         permanent: false,

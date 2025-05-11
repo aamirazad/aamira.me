@@ -31,6 +31,10 @@ export const useful = [
     text: "signal",
   },
   {
+    href: "/telegram",
+    text: "telegram",
+  },
+  {
     href: "https://bsky.app/profile/aamira.me",
     text: "bluesky",
   },
