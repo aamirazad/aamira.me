@@ -1,10 +1,11 @@
 import {
   Bookmark,
   Camera,
+  ChartArea,
+  Clipboard,
   Code,
   File,
-  ListCheck,
-  MessagesSquare,
+  NotebookPen,
   NotebookText,
   Video,
 } from "lucide-react";
@@ -45,32 +46,33 @@ export const useful = [
 ];
 
 export const projects = [
-  {
-    href: "https://github.com/aamirazad/dotsy",
-    text: "Dotsy",
-    description:
-      "A qt python desktop app which syncs and restores linux config files",
-    wip: true,
-  },
+  // {
+  //   href: "https://github.com/aamirazad/dotsy",
+  //   text: "Dotsy",
+  //   description:
+  //     "A qt python desktop app which syncs and restores linux config files",
+  //   wip: true,
+  // },
   {
     href: "https://jobs.aamira.me/",
     text: "Job Journey",
     description:
-      "A example full stck nextjs app so students can easily search job postings and employers can easily submit them with secure authentication and ease of use",
-    wip: true,
+      "A full stck nextjs app in which students can easily search job postings and employers can easily submit them with secure authentication and ease of use. Project was awarded 3rd place in the Pennslvania FBLA Competition.",
+    badge: "Featured",
+    github: "https://github.com/aamirazad/job-journey",
   },
   {
     href: "https://tigertutoringtool.aamira.me/",
     text: "Tigertutoringtool",
     description:
-      "Written articles to help students in my class with their classes",
+      "Written articles to help students in my class with their classes. Features charts and diagrams as well as linking between articles and a graph view.",
     wip: false,
   },
   {
     href: "https://homelab-connector.aamira.me",
     text: "Homelab Connector",
     description:
-      "A full stack nextjs app connecting many self hosted services including paperless-ngx, immich, and whishper",
+      "A lighting fast full stack nextjs app connecting many self hosted services including paperless-ngx, immich, and whishper with authentication and support for many different use cases.",
     wip: true,
   },
   {
@@ -81,7 +83,8 @@ export const projects = [
   {
     href: "https://school.aamira.me/%CE%94",
     text: "Δ Chem",
-    description: "Delta math inspired chemistry quiz site",
+    description:
+      "Delta math inspired chemistry quiz site. Walks the user though solving a problem to teach a concept efficiently.",
   },
   {
     href: "https://school.aamira.me/renaissance-image-collection",
@@ -107,9 +110,9 @@ export const homelab = [
     icon: () => <NotebookText />,
   },
   {
-    text: "Forum",
-    href: "https://hasd.dino.icu/",
-    icon: () => <MessagesSquare />,
+    text: "Plausible",
+    href: "https://plausible.aamira.me/",
+    icon: () => <ChartArea />,
   },
   {
     text: "Immich",
@@ -117,9 +120,9 @@ export const homelab = [
     icon: () => <Camera />,
   },
   {
-    text: "Vikunja",
-    href: "https://tasks.aamira.me/",
-    icon: () => <ListCheck />,
+    text: "Karakeep",
+    href: "https://keep.aamira.me/",
+    icon: () => <NotebookPen />,
   },
   {
     text: "Forgejo",
@@ -140,6 +143,11 @@ export const homelab = [
     text: "Files",
     href: "https://files.aamira.me/",
     icon: () => <File />,
+  },
+  {
+    text: "PrivateBin",
+    href: "https://paste.aamira.me/",
+    icon: () => <Clipboard />,
   },
 ];
 

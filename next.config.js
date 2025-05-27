@@ -17,13 +17,13 @@ const nextConfig = {
       },
       {
         source: "/resume",
-        destination: "https://rxresu.me/aamira/resumes",
+        destination: "https://files.aamira.me/resume.pdf",
         permanent: false,
       },
       {
         source: "/signal",
         destination:
-          "https://signal.me/#eu/wD6CgW4YQr53JJtymXMQSHOGQJ-DS-TkO7R_Km1sZSoxmzM32c9Ga5DAc3vV2Is5",
+          "https://signal.me/#eu/gYSBVtWgFaykPtlA00TXJrO91sPmPjq_Si4wE8oYpd1E-llhxxVBtITfDB17DtDj",
         permanent: false,
       },
       {
