@@ -3,14 +3,27 @@ import { useful, projects, homelab } from "./links";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { SiGithub } from "@icons-pack/react-simple-icons";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function Page() {
   return (
     <section>
-      <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">
-        Aamir Azad
-      </h1>
-      <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+      <div className="flex items-center space-x-4 h-36">
+        <Avatar className="size-[64]">
+          <AvatarImage
+            src="https://files.aamira.me/inbox/7846690e25ca5ecdb6bd3d1ca9b7c800.webp"
+            alt="Profile Picture"
+          />
+          <AvatarFallback>
+            <div className="mx-[64]">AA</div>
+          </AvatarFallback>
+        </Avatar>
+        <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">
+          Aamir Azad
+        </h1>
+      </div>
+
+      <h2 className=" scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
         Useful Links
       </h2>
       <ul className="font-sm my-6 flex flex-col space-x-0 space-y-2 text-neutral-600 dark:text-neutral-300">
