@@ -4,7 +4,6 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Navbar } from "./components/nav";
 import Footer from "./components/footer";
-import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
@@ -48,12 +47,18 @@ export default function RootLayout({
         GeistMono.variable,
       )}
     >
+      <head>
+        <script
+          defer
+          data-domain="aamira.me"
+          src="http://plausible.aamira.me/js/script.outbound-links.js"
+        ></script>
+      </head>
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
           <Navbar />
           {children}
           <Footer />
-          <Analytics />
         </main>
       </body>
     </html>
