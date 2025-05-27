@@ -50,13 +50,13 @@ export default function Page() {
       <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
         Projects
       </h2>
-      <p className="my-6 text-slate-400">
+      <p className="my-6 dark:text-slate-400 text-slate-600">
         Instead of wasting time on social media, I devote almost all of my free
         time to learning and building with what I have learned. I have built
         many projects, each more ambitious than the last in order to continue to
         push myself and prepare myself for the future.
       </p>
-      <div className="font-sm my-6 flex flex-col space-x-0 space-y-2 text-neutral-600 dark:text-neutral-300">
+      <div className="font-sm my-6 flex flex-col space-x-0 space-y-2 text-neutral-900 dark:text-neutral-300">
         {projects.map((item) => (
           <div key={item.href} className="border-l border-slate-600 pl-1">
             <div className="flex flex-col">
@@ -73,7 +73,10 @@ export default function Page() {
                   <Badge variant="outline">Work in progress</Badge>
                 ) : null}
                 {item.badge && (
-                  <Badge variant={"outline"} className="bg-orange-900">
+                  <Badge
+                    variant={"outline"}
+                    className="dark:bg-orange-900 bg-orange-200"
+                  >
                     {item.badge}
                   </Badge>
                 )}
@@ -89,7 +92,9 @@ export default function Page() {
                 )}
               </div>
 
-              <p className="ml-2 text-slate-400">{item.description}</p>
+              <p className="ml-2 dark:text-slate-400 text-slate-600">
+                {item.description}
+              </p>
             </div>
           </div>
         ))}
@@ -97,7 +102,7 @@ export default function Page() {
       <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
         Homelab
       </h2>
-      <p className="my-6 text-slate-400">
+      <p className="my-6 dark:text-slate-400 text-slate-600">
         With the purpose of teaching myself networking as well as creating
         services I use every day, I have built a homelab setup. Run on a network
         of computers from an old machine I bought on ebay to a raspberry pi, my
