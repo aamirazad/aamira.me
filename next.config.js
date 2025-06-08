@@ -88,6 +88,12 @@ const nextConfig = {
           "https://connect.fbla.org/headquarters/files/High%20School%20Competitive%20Events%20Resources/Individual%20Guidelines/Presentation%20Events/Computer-Game-Simulation-Programming.pdf",
         permanent: false,
       },
+      {
+        source: "/aseprite",
+        destination:
+          "https://files.aamira.me/inbox/aseprite-v1.3.14-beta1.zip",
+        permanent: false,
+      },
     ];
   },
 };
