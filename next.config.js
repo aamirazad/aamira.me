@@ -94,6 +94,12 @@ const nextConfig = {
           "https://files.aamira.me/inbox/aseprite-v1.3.14-beta1.zip",
         permanent: false,
       },
+      {
+        source: "/pronounce-godot",
+        destination:
+          "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ef/En-us-Godot.oga/En-us-Godot.oga.mp3",
+        permanent: false,
+      },
     ];
   },
 };
