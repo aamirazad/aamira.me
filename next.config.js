@@ -47,6 +47,11 @@ const nextConfig = {
         permanent: false,
       },
       {
+        source: "/.well-known/openid-configuration",
+        destination: "/api/.well-known/openid-configuration",
+        permanent: false,
+      },
+      {
         source: "/outstanding-academic",
         destination:
           "https://papers.aamira.me/share/wyABSOjNExeQi4nBVfS10rMH4LBkvc8ppvxZdoroEfNY7V9ECF",
@@ -90,8 +95,7 @@ const nextConfig = {
       },
       {
         source: "/aseprite",
-        destination:
-          "https://files.aamira.me/inbox/aseprite-v1.3.14-beta1.zip",
+        destination: "https://files.aamira.me/inbox/aseprite-v1.3.14-beta1.zip",
         permanent: false,
       },
       {
