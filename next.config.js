@@ -104,6 +104,27 @@ const nextConfig = {
           "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ef/En-us-Godot.oga/En-us-Godot.oga.mp3",
         permanent: false,
       },
+      {
+        source: "/zulip",
+        destination:
+          // Default channels. Members group
+          "https://hasd.zulipchat.com/join/6rwf4ado2v2erh3rowedivlr/",
+        permanent: false,
+      },
+      {
+        source: "/fbla-zulip",
+        destination:
+          // FBLA-bulletin, chat, general. FBLA, members group
+          "https://hasd.zulipchat.com/join/ki2oh6q5q3mnr3td6r3fxplg/",
+        permanent: false,
+      },
+      {
+        source: "/history-zulip",
+        destination:
+          // History-bulletin, chat, sim, general. History club, members group
+          "https://hasd.zulipchat.com/join/gk442fdoiubirhzpdytxvq5w/",
+        permanent: false,
+      },
     ];
   },
 };
