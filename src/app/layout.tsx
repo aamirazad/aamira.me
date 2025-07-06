@@ -55,11 +55,11 @@ export default function RootLayout({
           src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon='{"token": "6bfdbfd69ace4056885b98851acd86fa"}'
         ></script>
-        {/* Vercel analytics */}
-        <Analytics />
       </head>
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+          {/* Vercel analytics */}
+          <Analytics />
           <Navbar />
           {children}
           <Footer />
