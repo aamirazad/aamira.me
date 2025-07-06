@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Navbar } from "./components/nav";
-import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import Footer from "./components/footer";
 
 export const metadata: Metadata = {
@@ -45,21 +45,18 @@ export default function RootLayout({
       className={cx(
         "text-black bg-white dark:text-white dark:bg-black",
         GeistSans.variable,
-        GeistMono.variable,
+        GeistMono.variable
       )}
     >
-      <head>
-        {/* Cloudflare Web Analytics */}
-        <script
-          defer
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon='{"token": "6bfdbfd69ace4056885b98851acd86fa"}'
-        ></script>
-      </head>
+      <head></head>
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          {/* Vercel analytics */}
-          <Analytics />
+          {/* Rybbit Analytics */}
+          <Script
+            src="/api/script.js"
+            data-site-id="1"
+            strategy="afterInteractive"
+          />
           <Navbar />
           {children}
           <Footer />
