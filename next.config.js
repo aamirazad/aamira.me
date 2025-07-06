@@ -127,6 +127,18 @@ const nextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: "/api/script.js",
+        destination: `https://analytics.aamira.me/api/script.js`,
+      },
+      {
+        source: "/api/track",
+        destination: `https://analytics.aamira.me/api/track`,
+      },
+    ]
+  },
 };
 
 module.exports = nextConfig;
