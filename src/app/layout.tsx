@@ -49,17 +49,15 @@ export default function RootLayout({
       )}
     >
       <head>
-        {/* Cloudflare Web Analytics */}
+        {/* Rybbit Analytics */}
         <script
+          src="https://analytics.aamira.me/api/script.js"
+          data-site-id="1"
           defer
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon='{"token": "6bfdbfd69ace4056885b98851acd86fa"}'
         ></script>
       </head>
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          {/* Vercel analytics */}
-          <Analytics />
           <Navbar />
           {children}
           <Footer />
