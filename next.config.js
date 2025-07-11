@@ -125,6 +125,11 @@ const nextConfig = {
           "https://hasd.zulipchat.com/join/gk442fdoiubirhzpdytxvq5w/",
         permanent: false,
       },
+      {
+        source: "/chem-textbook",
+        destination: "https://cdn.aamira.me/Zumdahl%20Textbook.pdf",
+        permanent: false,
+      },
     ];
   },
   async rewrites() {
