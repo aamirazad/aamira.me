@@ -134,6 +134,7 @@ const nextConfig = {
 	source: "/fbla-2024-gc-archive",
 	destination: "https://files.aamira.me/inbox/FBLA%202024-2025%20GC%20Stream.html",
 	permanent: false,
+      },
     ];
   },
   async rewrites() {
