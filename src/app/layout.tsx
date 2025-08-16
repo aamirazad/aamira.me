@@ -53,8 +53,8 @@ export default function RootLayout({
                 <main className="flex-auto min-w-0 mt-6 flex flex-col">
                     {/* Rybbit Analytics */}
                     <Script
-                        src="/api/script.js"
-                        data-site-id="1"
+                        src="https://app.rybbit.io/api/script.js"
+                        data-site-id="1494"
                         strategy="afterInteractive"
                     />
                     {/* <Navbar /> */}
