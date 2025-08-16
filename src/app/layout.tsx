@@ -9,13 +9,13 @@ import Footer from "./components/footer";
 export const metadata: Metadata = {
     title: {
         default: "Aamir Azad",
-        template: "Personal Site",
+        template: "",
     },
-    description: "This is my portfolio.",
+    description: "",
     openGraph: {
-        title: "My Portfolio",
-        description: "This is my portfolio.",
-        siteName: "My Portfolio",
+        title: "Trip To Turkey",
+        description: "Enjoy",
+        siteName: "Aamir Azad",
         locale: "en_US",
         type: "website",
     },
