@@ -13,6 +13,7 @@ export default async function Page({
             </h2>
             <p className="leading-7">By Aslam Azad</p>
             <MuxPlayer
+                defaultHiddenCaptions
                 className="mt-24"
                 playbackId={slug}
                 streamType="on-demand"
