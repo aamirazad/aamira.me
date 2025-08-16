@@ -8,7 +8,7 @@ export default async function Page({
     const { slug } = await params;
     return (
         <>
-            <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+            <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight md:mt-8 mt-5">
                 Trip To Turkey
             </h2>
             <p className="leading-7">By Aslam Azad</p>
@@ -16,10 +16,9 @@ export default async function Page({
                 className="mt-24"
                 playbackId={slug}
                 streamType="on-demand"
-                style={{ width: "100%", aspectRatio: "16/9" }}
                 metadata={{
                     video_id: slug,
-                    video_title: "Turkey",
+                    video_title: "Turkey Trip",
                     player_name: "aamira.me",
                 }}
             />

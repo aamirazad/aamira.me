@@ -144,6 +144,12 @@ const nextConfig = {
                     "https://files.aamira.me/inbox/FBLA%202024-2025%20GC%20Stream.html",
                 permanent: false,
             },
+            {
+                source: "/turkey-2025",
+                destination:
+                    "/watch/AY4aAI7zzcaOE6Kd3202XudT7k4jIuglQSIBj3UoGu02U",
+                permanent: false,
+            },
         ];
     },
     async rewrites() {
