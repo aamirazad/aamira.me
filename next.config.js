@@ -126,6 +126,13 @@ const nextConfig = {
         permanent: false,
       },
       {
+        source: "/history-officer-zulip",
+        destination:
+          // History-bulletin, chat, sim, officers, general, announcements. History club, officers, members group
+          "https://hasd.zulipchat.com/join/h3fovacw2avg7c52vrftxt4k/",
+        permanent: false,
+      },
+      {
         source: "/chem-textbook",
         destination: "https://cdn.aamira.me/Zumdahl%20Textbook.pdf",
         permanent: false,
