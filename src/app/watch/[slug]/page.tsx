@@ -16,6 +16,36 @@ export default function Page({
     // Storage key scoped to this video
     const storageKey = useMemo(() => `watch:${slug}:position`, [slug]);
 
+    // Define chapters for the video - you can customize these
+    const chapters = useMemo(
+        () => [
+            { startTime: 0, value: "Start" },
+            { startTime: 44, value: "Washington D.C" },
+            { startTime: 335, value: "Istanbul" },
+            { startTime: 1714, value: "Bolu" },
+            { startTime: 2455, value: "Ankara" },
+            { startTime: 3492, value: "Cappadocia" },
+            { startTime: 4584, value: "Konya" },
+            { startTime: 5138, value: "Pamukkale" },
+            { startTime: 7480, value: "Goodbye Turkey!" },
+            { startTime: 7527, value: "Epilogue" },
+        ],
+        []
+    );
+
+    // Function to add chapters to the player
+    const addChaptersToPlayer = useCallback(() => {
+        const el = playerRef.current as any;
+        if (!el || !chapters.length) return;
+
+        try {
+            el.addChapters(chapters);
+            console.log("Chapters added successfully:", chapters);
+        } catch (error) {
+            console.warn("Failed to add chapters:", error);
+        }
+    }, [chapters]);
+
     // Restore last position when the player metadata loads
     useEffect(() => {
         const el = playerRef.current as any;
@@ -38,13 +68,32 @@ export default function Page({
             } catch {
                 // no-op
             }
+
+            // Add chapters after metadata is loaded
+            addChaptersToPlayer();
         };
 
         el.addEventListener("loadedmetadata", onLoadedMetadata);
         return () => {
             el.removeEventListener("loadedmetadata", onLoadedMetadata);
         };
-    }, [storageKey]);
+    }, [storageKey, addChaptersToPlayer]);
+
+    // Listen for chapter changes
+    useEffect(() => {
+        const el = playerRef.current as any;
+        if (!el) return;
+
+        const onChapterChange = () => {
+            console.log("Active chapter:", el.activeChapter);
+            console.log("All chapters:", el.chapters);
+        };
+
+        el.addEventListener("chapterchange", onChapterChange);
+        return () => {
+            el.removeEventListener("chapterchange", onChapterChange);
+        };
+    }, []);
 
     // Throttled saver for current time
     const lastSavedRef = useRef(0);
@@ -64,7 +113,7 @@ export default function Page({
         }
     }, [storageKey]);
 
-    // Save immediately on page hide/visibility change so we don’t lose the last seconds
+    // Save immediately on page hide/visibility change so we don't lose the last seconds
     const saveImmediately = useCallback(() => {
         const el = playerRef.current as any;
         if (!el) return;
