@@ -5,8 +5,6 @@ description: "How I built a job posting platform that won 3rd place in the Penns
 tags: ["nextjs", "full-stack", "competition", "web-development"]
 ---
 
-# Building Job Journey: A Full-Stack Success Story
-
 When I set out to build Job Journey, I had a simple goal: create a platform where students could easily search for jobs and employers could effortlessly post opportunities. What I ended up with was a full-stack Next.js application that earned 3rd place in the Pennsylvania FBLA Competition.
 
 ## The Problem

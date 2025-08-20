@@ -4,31 +4,11 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { getAllPosts } from "@/lib/blog";
 
-// Blog posts data (shared between pages)
-const blogPosts = [
-    {
-        slug: "building-modern-homelab",
-        title: "Building a Modern Homelab: My Journey",
-        description:
-            "How I built a secure and reliable homelab infrastructure from scratch, including hardware choices, networking setup, and the services I'm running.",
-        date: "2024-01-15",
-        tags: ["homelab", "networking", "self-hosting"],
-    },
-    {
-        slug: "why-open-source",
-        title: "Why I Choose Open Source",
-        description:
-            "My thoughts on the importance of open source software and how it has shaped my development journey.",
-        date: "2024-01-10",
-        tags: ["open-source", "philosophy", "development"],
-    },
-];
-
-export default function Page() {
-    const recentPosts = blogPosts
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-        .slice(0, 3);
+export default async function Page() {
+    const posts = await getAllPosts();
+    const recentPosts = posts.slice(0, 3);
 
     return (
         <div className="space-y-16">
@@ -75,28 +55,34 @@ export default function Page() {
                             </h2>
                         </div>
                         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                            {recentPosts.map((post) => (
-                                <Link
-                                    key={post.slug}
-                                    href={`/blog/${post.slug}`}
-                                    className="group block p-6 border border-neutral-200 dark:border-neutral-800 rounded-lg hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200"
-                                >
-                                    <h3 className="font-semibold mb-2 group-hover:text-orange-500 transition-colors">
-                                        {post.title}
-                                    </h3>
-                                    <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-3 line-clamp-2">
-                                        {post.description}
-                                    </p>
-                                    <div className="flex items-center justify-between">
-                                        <time className="text-xs text-neutral-500">
-                                            {new Date(
-                                                post.date
-                                            ).toLocaleDateString()}
-                                        </time>
-                                        <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-                                    </div>
-                                </Link>
-                            ))}
+                            {recentPosts.map((post) => {
+                                const validDate =
+                                    post.date && !isNaN(Date.parse(post.date));
+                                return (
+                                    <Link
+                                        key={post.slug}
+                                        href={`/blog/${post.slug}`}
+                                        className="group block p-6 border border-neutral-200 dark:border-neutral-800 rounded-lg hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200"
+                                    >
+                                        <h3 className="font-semibold mb-2 group-hover:text-orange-500 transition-colors">
+                                            {post.title}
+                                        </h3>
+                                        <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-3 line-clamp-2">
+                                            {post.description}
+                                        </p>
+                                        <div className="flex items-center justify-between">
+                                            <time className="text-xs text-neutral-500">
+                                                {validDate
+                                                    ? new Date(
+                                                          post.date!
+                                                      ).toLocaleDateString()
+                                                    : ""}
+                                            </time>
+                                            <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                                        </div>
+                                    </Link>
+                                );
+                            })}
                         </div>
                         <div className="mt-8 text-center">
                             <Link

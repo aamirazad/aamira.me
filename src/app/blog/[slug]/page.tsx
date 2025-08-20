@@ -2,49 +2,26 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Tag } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { getAllPosts, getPostMeta } from "@/lib/blog";
+import StripFrontmatter from "@/components/strip-frontmatter";
 
 interface BlogPostPageProps {
-    params: Promise<{
-        slug: string;
-    }>;
+    params: { slug: string };
 }
 
-// List of available blog posts
-const blogPosts = [
-    {
-        slug: "building-modern-homelab",
-        title: "Building a Modern Homelab: My Journey",
-        description:
-            "How I built a secure and reliable homelab infrastructure from scratch, including hardware choices, networking setup, and the services I'm running.",
-        date: "2024-01-15",
-        tags: ["homelab", "networking", "self-hosting"],
-    },
-    {
-        slug: "why-open-source",
-        title: "Why I Choose Open Source",
-        description:
-            "My thoughts on the importance of open source software and how it has shaped my development journey.",
-        date: "2024-01-10",
-        tags: ["open-source", "philosophy", "development"],
-    },
-];
-
-export function generateStaticParams() {
-    return blogPosts.map((post) => ({
-        slug: post.slug,
-    }));
+export async function generateStaticParams() {
+    const posts = await getAllPosts();
+    return posts.map((post) => ({ slug: post.slug }));
 }
 
 export const dynamicParams = false;
 
 export async function generateMetadata({ params }: BlogPostPageProps) {
-    const { slug } = await params;
-    const post = blogPosts.find((p) => p.slug === slug);
+    const { slug } = params;
+    const post = await getPostMeta(slug);
 
     if (!post) {
-        return {
-            title: "Post Not Found",
-        };
+        return { title: "Post Not Found" };
     }
 
     return {
@@ -54,21 +31,25 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-    const { slug } = await params;
-    const post = blogPosts.find((p) => p.slug === slug);
+    const { slug } = params;
+    const post = await getPostMeta(slug);
 
-    if (!post) {
-        notFound();
-    }
+    if (!post) notFound();
 
-    // Dynamically import the MDX component
-    let MDXContent;
+    let MDXContent: any;
     try {
         const mdxModule = await import(`@/content/blog/${slug}.mdx`);
         MDXContent = mdxModule.default;
-    } catch (error) {
-        notFound();
+    } catch {
+        try {
+            const mdModule = await import(`@/content/blog/${slug}.md`);
+            MDXContent = mdModule.default;
+        } catch {
+            notFound();
+        }
     }
+
+    const validDate = post.date && !isNaN(Date.parse(post.date));
 
     return (
         <div className="max-w-4xl mx-auto">
@@ -87,19 +68,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     </h1>
 
                     <div className="flex items-center gap-4 text-sm text-neutral-600 dark:text-neutral-400">
-                        <div className="flex items-center gap-1">
-                            <Calendar className="w-4 h-4" />
-                            <time>
-                                {new Date(post.date).toLocaleDateString(
-                                    "en-US",
-                                    {
-                                        year: "numeric",
-                                        month: "long",
-                                        day: "numeric",
-                                    }
-                                )}
-                            </time>
-                        </div>
+                        {validDate && (
+                            <div className="flex items-center gap-1">
+                                <Calendar className="w-4 h-4" />
+                                <time>
+                                    {new Date(post.date!).toLocaleDateString(
+                                        "en-US",
+                                        {
+                                            year: "numeric",
+                                            month: "long",
+                                            day: "numeric",
+                                        }
+                                    )}
+                                </time>
+                            </div>
+                        )}
                         {post.tags && post.tags.length > 0 && (
                             <div className="flex items-center gap-2">
                                 <Tag className="w-4 h-4" />
@@ -114,14 +97,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         )}
                     </div>
 
-                    <p className="text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                        {post.description}
-                    </p>
+                    {post.description && (
+                        <p className="text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                            {post.description}
+                        </p>
+                    )}
                 </div>
             </div>
 
             <div className="prose prose-neutral dark:prose-invert max-w-none">
-                <MDXContent />
+                <StripFrontmatter>
+                    <MDXContent />
+                </StripFrontmatter>
             </div>
         </div>
     );
