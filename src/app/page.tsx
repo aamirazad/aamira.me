@@ -110,15 +110,6 @@ export default async function Page() {
                             </a>
                         ))}
                     </div>
-                    <div className="mt-6">
-                        <Link
-                            className="inline-flex items-center space-x-2 text-orange-500 hover:text-orange-600 transition-colors"
-                            href="/quick"
-                        >
-                            <span>More links</span>
-                            <ArrowUpRight className="w-4 h-4" />
-                        </Link>
-                    </div>
                 </div>
             </section>
 
@@ -175,7 +166,10 @@ export default async function Page() {
                                                 className="hover:text-orange-500 transition-colors"
                                                 rel="noopener noreferrer"
                                                 target="_blank"
-                                                href={item.github}
+                                                href={
+                                                    `https://github.com/` +
+                                                    item.github
+                                                }
                                                 title="View source code"
                                             >
                                                 <SiGithub width={20} />

@@ -31,9 +31,7 @@ export default function Footer() {
                         </a>
                     </div>
                 </div>
-                <div className="text-neutral-600 dark:text-neutral-400 text-sm">
-                    Built with Next.js & Tailwind CSS
-                </div>
+                <div className="text-neutral-600 dark:text-neutral-400 text-sm"></div>
             </div>
         </footer>
     );
