@@ -1,50 +1,84 @@
-Building a homelab has been one of the most rewarding projects I've undertaken. What started as a simple desire to learn more about networking and server administration has evolved into a comprehensive infrastructure that serves my family's needs while teaching me invaluable skills.
+export const metadata = {
+    title: "Building a Modern Homelab: My Journey",
+    description:
+        "How I built a secure and reliable homelab infrastructure from scratch, including hardware choices, networking setup, and the services I'm running.",
+    date: "2024-01-15",
+    tags: ["homelab", "networking", "self-hosting"],
+};
 
-## The Hardware Foundation
+Building a homelab has been one of the most rewarding learning experiences I've had. In this post, I'll walk you through my journey of creating a secure, reliable, and scalable home infrastructure.
 
-My homelab journey began with a used Dell OptiPlex 7040 purchased from eBay for around $200. This compact machine has served as the backbone of my setup:
+## Why Build a Homelab?
 
--   Intel Core i5-6500 processor
--   16GB DDR4 RAM (upgraded from 8GB)
--   500GB NVMe SSD for the OS
--   Multiple external drives for storage
+There are several reasons why I decided to build my own homelab:
 
-I later added a Raspberry Pi 4 for lightweight services and as a backup DNS server. The beauty of starting small is that you can gradually expand as your needs grow.
+1. **Learning**: Hands-on experience with enterprise technologies
+2. **Self-hosting**: Control over my data and services
+3. **Cost savings**: Avoiding monthly subscriptions for basic services
+4. **Privacy**: Keeping sensitive data at home
 
-## Network Security: Zero Open Ports
+## Hardware Setup
 
-One of my core principles has been maintaining security without sacrificing functionality. I've achieved this through:
+My current setup consists of:
 
-**Cloudflare Tunnels**: All external access goes through Cloudflare's secure tunnels, meaning no ports are exposed on my home network.
+-   **Main Server**: Dell OptiPlex 7040 (Intel i5-6500, 32GB RAM, 1TB NVMe + 4TB HDD)
+-   **Raspberry Pi 4**: For lightweight services and monitoring
+-   **Network**: UniFi Dream Machine SE, 24-port managed switch
+-   **Storage**: Synology DS220+ for backups
 
-**VPN Access**: For services that don't need public access, I use WireGuard VPN to securely connect from anywhere.
+## Software Stack
 
-**Segmented Networks**: IoT devices, servers, and client devices are on separate VLANs with carefully configured firewall rules.
+I'm running everything in containers using Docker and Docker Compose:
 
-## Services That Matter
+```yaml
+version: "3.8"
+services:
+    nginx-proxy-manager:
+        image: jc21/nginx-proxy-manager:latest
+        ports:
+            - "80:80"
+            - "443:443"
+        # ... configuration
+```
 
-Rather than running services just because I can, I focus on tools that genuinely improve my daily workflow:
+## Security Considerations
 
-**Nextcloud**: Complete replacement for Google Drive with calendar and contact sync  
-**Plex Media Server**: Streaming for the family's movie and TV collection  
-**Pi-hole**: Network-wide ad blocking and DNS management  
-**Uptime Kuma**: Monitoring all services with beautiful dashboards  
-**Nginx Proxy Manager**: Simple reverse proxy management with SSL  
-**Vaultwarden**: Self-hosted Bitwarden for password management
+Security is paramount in any homelab setup:
+
+-   **Zero trust network**: No open ports to the internet
+-   **VPN access**: WireGuard for remote access
+-   **Regular updates**: Automated security patching
+-   **Monitoring**: Real-time alerting for anomalies
+
+## Services I'm Running
+
+Currently hosting:
+
+-   File sharing and sync
+-   Media streaming (Plex)
+-   Home automation (Home Assistant)
+-   Password manager (Vaultwarden)
+-   Git repositories (Gitea)
+-   Monitoring stack (Prometheus + Grafana)
 
 ## Lessons Learned
 
-The most important lesson? Start simple and grow gradually. I initially tried to run everything at once and ended up with an unstable, complex mess. Now I follow these principles:
+Building and maintaining a homelab has taught me:
 
-1. **Document everything** - Future you will thank present you
-2. **Backup religiously** - Automate backups and test restores regularly
-3. **Monitor proactively** - Set up alerts before problems become disasters
-4. **Keep it simple** - Complexity is the enemy of reliability
+1. **Documentation is crucial**: Everything should be reproducible
+2. **Backups are non-negotiable**: 3-2-1 backup strategy
+3. **Start small**: Begin with essential services and expand gradually
+4. **Monitor everything**: You can't fix what you can't see
 
 ## What's Next?
 
-I'm currently working on improving my monitoring setup and exploring Kubernetes for container orchestration. The goal isn't just to learn new technology, but to solve real problems and create genuine value.
+I'm planning to expand with:
 
-Building a homelab has taught me more about networking, Linux administration, and infrastructure than any course could. If you're considering starting your own homelab journey, my advice is simple: start small, focus on learning, and build solutions for real problems.
+-   Kubernetes cluster for learning container orchestration
+-   Additional storage for media collection
+-   Better network segmentation with VLANs
+-   Automated disaster recovery procedures
 
-The investment in time and hardware has paid dividends in both practical skills and the satisfaction of running your own digital infrastructure. There's something deeply satisfying about knowing exactly how your digital life is hosted and secured.
+Building a homelab is an ongoing journey of learning and improvement. It's not just about the technology—it's about developing the skills and mindset needed for modern infrastructure management.
+
+If you're thinking about starting your own homelab, my advice is simple: start with what you have and grow from there. The most important step is the first one.

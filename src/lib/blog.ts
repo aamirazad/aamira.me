@@ -1,60 +1,97 @@
 import fs from "fs";
 import path from "path";
-import matter from "gray-matter";
-
-const postsDirectory = path.join(process.cwd(), "src/content/blog");
 
 export interface BlogPost {
     slug: string;
     title: string;
-    date: string;
     description: string;
-    tags?: string[];
-    content: string;
+    date: string;
+    tags: string[];
 }
 
-export function getBlogPosts(): BlogPost[] {
-    if (!fs.existsSync(postsDirectory)) {
+const contentDirectory = path.join(process.cwd(), "src/content/blog");
+
+export async function getAllBlogPosts(): Promise<BlogPost[]> {
+    try {
+        // Check if content directory exists
+        if (!fs.existsSync(contentDirectory)) {
+            return [];
+        }
+
+        const fileNames = fs.readdirSync(contentDirectory);
+        const mdxFiles = fileNames.filter((name) => name.endsWith(".mdx"));
+
+        const posts = await Promise.all(
+            mdxFiles.map(async (fileName) => {
+                const slug = fileName.replace(/\.mdx$/, "");
+
+                try {
+                    // Dynamically import the MDX file to get its metadata
+                    const mdxModule = await import(
+                        `@/content/blog/${slug}.mdx`
+                    );
+                    const metadata = mdxModule.metadata;
+
+                    return {
+                        slug,
+                        title: metadata?.title || slug,
+                        description: metadata?.description || "",
+                        date:
+                            metadata?.date ||
+                            new Date().toISOString().split("T")[0],
+                        tags: metadata?.tags || [],
+                    };
+                } catch (error) {
+                    console.error(`Error importing ${slug}:`, error);
+                    return null;
+                }
+            })
+        );
+
+        // Filter out null values and sort by date
+        const validPosts = posts.filter(
+            (post): post is BlogPost => post !== null
+        );
+        return validPosts.sort(
+            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+    } catch (error) {
+        console.error("Error reading blog posts:", error);
         return [];
     }
-
-    const fileNames = fs.readdirSync(postsDirectory);
-    const allPostsData = fileNames
-        .filter((fileName) => fileName.endsWith(".md"))
-        .map((fileName) => {
-            const slug = fileName.replace(/\.md$/, "");
-            const fullPath = path.join(postsDirectory, fileName);
-            const fileContents = fs.readFileSync(fullPath, "utf8");
-            const { data, content } = matter(fileContents);
-
-            return {
-                slug,
-                content,
-                title: data.title,
-                date: data.date,
-                description: data.description,
-                tags: data.tags,
-            } as BlogPost;
-        });
-
-    return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export function getBlogPost(slug: string): BlogPost | null {
+export async function getBlogPost(slug: string): Promise<BlogPost | null> {
     try {
-        const fullPath = path.join(postsDirectory, `${slug}.md`);
-        const fileContents = fs.readFileSync(fullPath, "utf8");
-        const { data, content } = matter(fileContents);
+        // Dynamically import the MDX file to get its metadata
+        const mdxModule = await import(`@/content/blog/${slug}.mdx`);
+        const metadata = mdxModule.metadata;
 
         return {
             slug,
-            content,
-            title: data.title,
-            date: data.date,
-            description: data.description,
-            tags: data.tags,
+            title: metadata?.title || slug,
+            description: metadata?.description || "",
+            date: metadata?.date || new Date().toISOString().split("T")[0],
+            tags: metadata?.tags || [],
         };
-    } catch {
+    } catch (error) {
+        console.error(`Error reading blog post ${slug}:`, error);
         return null;
+    }
+}
+
+export function getBlogPostSlugs(): string[] {
+    try {
+        if (!fs.existsSync(contentDirectory)) {
+            return [];
+        }
+
+        const fileNames = fs.readdirSync(contentDirectory);
+        return fileNames
+            .filter((name) => name.endsWith(".mdx"))
+            .map((name) => name.replace(/\.mdx$/, ""));
+    } catch (error) {
+        console.error("Error reading blog post slugs:", error);
+        return [];
     }
 }

@@ -1,10 +1,10 @@
 import "./global.css";
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
+import { Inter, Merriweather, Newsreader, Oswald } from "next/font/google";
 import { Navbar } from "./components/nav";
 import Script from "next/script";
 import Footer from "./components/footer";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
     title: {
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
     },
     description: "",
     openGraph: {
-        title: "Trip To Turkey",
-        description: "Enjoy",
+        title: "Aamir's Personal Site",
+        description: "My little corner of the internet",
         siteName: "Aamir Azad",
         locale: "en_US",
         type: "website",
@@ -32,7 +32,26 @@ export const metadata: Metadata = {
     },
 };
 
-const cx = (...classes) => classes.filter(Boolean).join(" ");
+const inter = Inter({
+    subsets: ["latin"],
+    variable: "--font-inter",
+});
+
+const merriweather = Merriweather({
+    subsets: ["latin"],
+    weight: ["300", "400", "700", "900"],
+    variable: "--font-merriweather",
+});
+
+const newsreader = Newsreader({
+    subsets: ["latin"],
+    variable: "--font-newsreader",
+});
+
+const oswald = Oswald({
+    subsets: ["latin"],
+    variable: "--font-oswald",
+});
 
 export default function RootLayout({
     children,
@@ -42,10 +61,12 @@ export default function RootLayout({
     return (
         <html
             lang="en"
-            className={cx(
+            className={cn(
                 "text-black bg-white dark:text-white dark:bg-black",
-                GeistSans.variable,
-                GeistMono.variable
+                inter.variable,
+                merriweather.variable,
+                newsreader.variable,
+                oswald.variable
             )}
         >
             <head></head>

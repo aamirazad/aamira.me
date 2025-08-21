@@ -4,31 +4,11 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { getAllBlogPosts } from "@/lib/blog";
 
-// Blog posts data (shared between pages)
-const blogPosts = [
-    {
-        slug: "building-modern-homelab",
-        title: "Building a Modern Homelab: My Journey",
-        description:
-            "How I built a secure and reliable homelab infrastructure from scratch, including hardware choices, networking setup, and the services I'm running.",
-        date: "2024-01-15",
-        tags: ["homelab", "networking", "self-hosting"],
-    },
-    {
-        slug: "why-open-source",
-        title: "Why I Choose Open Source",
-        description:
-            "My thoughts on the importance of open source software and how it has shaped my development journey.",
-        date: "2024-01-10",
-        tags: ["open-source", "philosophy", "development"],
-    },
-];
-
-export default function Page() {
-    const recentPosts = blogPosts
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-        .slice(0, 3);
+export default async function Page() {
+    const allPosts = await getAllBlogPosts();
+    const recentPosts = allPosts.slice(0, 3);
 
     return (
         <div className="space-y-16">
@@ -51,13 +31,10 @@ export default function Page() {
                                 Aamir Azad
                             </h1>
                             <p className="text-xl text-neutral-600 dark:text-neutral-400 mb-4">
-                                Student, Developer & Homelab Enthusiast
+                                Student, Developer
                             </p>
                             <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl">
-                                Building ambitious projects and learning in
-                                public. Passionate about open source,
-                                networking, and creating solutions that make a
-                                difference.
+                                High school student who loves learning.
                             </p>
                         </div>
                     </div>

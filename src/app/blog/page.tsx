@@ -1,35 +1,13 @@
 import { ArrowUpRight, Calendar, Tag } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { getAllBlogPosts } from "@/lib/blog";
 
-// List of available blog posts
-const blogPosts = [
-    {
-        slug: "building-modern-homelab",
-        title: "Building a Modern Homelab: My Journey",
-        description:
-            "How I built a secure and reliable homelab infrastructure from scratch, including hardware choices, networking setup, and the services I'm running.",
-        date: "2024-01-15",
-        tags: ["homelab", "networking", "self-hosting"],
-    },
-    {
-        slug: "why-open-source",
-        title: "Why I Choose Open Source",
-        description:
-            "My thoughts on the importance of open source software and how it has shaped my development journey.",
-        date: "2024-01-10",
-        tags: ["open-source", "philosophy", "development"],
-    },
-];
-
-export default function BlogPage() {
-    // Sort posts by date (newest first)
-    const posts = blogPosts.sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-    );
+export default async function BlogPage() {
+    const posts = await getAllBlogPosts();
 
     return (
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="space-y-8">
             <div className="space-y-4">
                 <h1 className="text-4xl font-bold tracking-tight">Blog</h1>
                 <p className="text-xl text-neutral-600 dark:text-neutral-400">
