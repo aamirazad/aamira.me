@@ -153,7 +153,7 @@ const nextConfig = {
         permanent: false,
       },
       {
-        source: "/get-fbla-help",
+        source: "/fbla-help",
         destination:
           "mailto:amazad15@hasdtigers.com, jawatt83@hasdtigers.com, lindsay.detwiler@hasdtigers.com?subject=FBLA%20Question",
         permanent: false,
