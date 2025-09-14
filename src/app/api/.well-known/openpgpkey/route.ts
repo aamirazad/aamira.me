@@ -1,8 +1,8 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
 export async function GET() {
-  // Your plain text response
-  const responseText = `-----BEGIN PGP PUBLIC KEY BLOCK-----
+	// Your plain text response
+	const responseText = `-----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mDMEZ3w0IhYJKwYBBAHaRw8BAQdA2S3SZUwT1i96h454zsMqZxlH0PYoH5xT5R8M
 tI0YhEm0IUFhbWlyIEF6YWQgPGFhbWlybWF6YWRAZ21haWwuY29tPoiTBBMWCgA7
@@ -29,8 +29,8 @@ ccPX1QiCO1Gz1QpTJyoN
 =0IJB
 -----END PGP PUBLIC KEY BLOCK-----`;
 
-  // Return the response as plain text
-  return new NextResponse(responseText, {
-    headers: { 'Content-Type': 'text/plain' },
-  });
+	// Return the response as plain text
+	return new NextResponse(responseText, {
+		headers: { "Content-Type": "text/plain" },
+	});
 }
