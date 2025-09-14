@@ -15,12 +15,6 @@ export default function Footer() {
 						>
 							Blog
 						</Link>
-						<Link
-							href="/quick"
-							className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
-						>
-							Quick Links
-						</Link>
 						<a
 							href="https://github.com/aamirazad"
 							className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
