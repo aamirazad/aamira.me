@@ -34,7 +34,7 @@ export default async function Page() {
 								Student, Developer
 							</p>
 							<p className="text-neutral-600 dark:text-neutral-400 max-w-2xl">
-								High school student who loves learning.
+								High school senior who loves learning.
 							</p>
 						</div>
 					</div>
@@ -97,7 +97,6 @@ export default async function Page() {
 							<a
 								key={link.href}
 								className="flex items-center p-3 border border-neutral-200 dark:border-neutral-800 rounded-lg transition-all hover:border-neutral-300 dark:hover:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-900"
-								rel="noopener noreferrer"
 								target="_blank"
 								href={link.href}
 							>
@@ -132,7 +131,6 @@ export default async function Page() {
 									<div className="flex items-center gap-3 flex-wrap">
 										<a
 											className="text-lg font-semibold hover:text-orange-500 transition-colors"
-											rel="noopener noreferrer"
 											target="_blank"
 											href={item.href}
 										>
@@ -157,9 +155,8 @@ export default async function Page() {
 										{item.github && (
 											<a
 												className="hover:text-orange-500 transition-colors"
-												rel="noopener noreferrer"
 												target="_blank"
-												href={`https://github.com/` + item.github}
+												href={`https://github.com/${item.github}`}
 												title="View source code"
 											>
 												<SiGithub width={20} />
@@ -205,7 +202,6 @@ export default async function Page() {
 							<a
 								key={link.href}
 								className="flex items-center p-4 border border-neutral-200 dark:border-neutral-800 rounded-lg transition-all hover:border-neutral-300 dark:hover:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-900"
-								rel="noopener noreferrer"
 								target="_blank"
 								href={link.href}
 							>

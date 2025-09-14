@@ -3,11 +3,11 @@ import {
 	Bookmark,
 	Camera,
 	ChartArea,
-	Clipboard,
 	Code,
 	File,
+	GitPullRequestArrow,
 	Kanban,
-	NotebookPen,
+	Mails,
 	NotebookText,
 	Video,
 } from "lucide-react";
@@ -139,7 +139,7 @@ export const homelab = [
 	{
 		text: "Forgejo",
 		href: "https://code.aamira.me/",
-		icon: () => <Code />,
+		icon: () => <GitPullRequestArrow />,
 	},
 	{
 		text: "Jellyfin",
@@ -165,5 +165,15 @@ export const homelab = [
 		text: "Actual",
 		href: "https://finance.aamira.me/",
 		icon: () => <BadgeCent />,
+	},
+	{
+		text: "Listmonk",
+		href: "https://list.aamira.me/",
+		icon: () => <Mails />,
+	},
+	{
+		text: "Code Server",
+		href: "https://dev.aamira.me/",
+		icon: () => <Code />,
 	},
 ];
