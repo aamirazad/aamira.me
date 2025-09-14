@@ -54,35 +54,38 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
 	return (
 		<div className="min-h-screen w-full">
-			<div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
+			<div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 				<div className="mb-8 sm:mb-10">
 					<Link
 						href="/blog"
-						className="inline-flex items-center gap-2 text-orange-500 hover:text-orange-600 transition-colors text-sm font-medium mb-6 sm:mb-8 font-inter group"
+						className="group mb-6 inline-flex items-center gap-2 font-inter font-medium text-orange-500 text-sm transition-colors hover:text-orange-600 sm:mb-8"
 					>
-						<ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+						<ArrowLeft className="group-hover:-translate-x-1 h-4 w-4 transition-transform" />
 						Back to blog
 					</Link>
 
 					<div className="space-y-4 sm:space-y-6">
-						<h1 className="text-4xl font-bold leading-tight tracking-tight text-neutral-900 dark:text-neutral-100">
+						<h1 className="font-bold text-4xl text-neutral-900 leading-tight tracking-tight dark:text-neutral-100">
 							{post.title}
 						</h1>
 
-						<div className="flex flex-wrap items-center gap-3 sm:gap-4 text-sm text-neutral-600 dark:text-neutral-400">
+						<div className="flex flex-wrap items-center gap-3 text-neutral-600 text-sm sm:gap-4 dark:text-neutral-400">
 							<div className="flex items-center gap-2">
-								<Calendar className="w-4 h-4" />
+								<Calendar className="h-4 w-4" />
 								<time className="font-medium">
-									{new Date(post.date).toLocaleDateString("en-US", {
-										year: "numeric",
-										month: "long",
-										day: "numeric",
-									})}
+									{new Date(post.date).toLocaleDateString(
+										"en-US",
+										{
+											year: "numeric",
+											month: "long",
+											day: "numeric",
+										},
+									)}
 								</time>
 							</div>
 							{post.tags && post.tags.length > 0 && (
 								<div className="flex items-center gap-2">
-									<Tag className="w-4 h-4" />
+									<Tag className="h-4 w-4" />
 									<div className="flex flex-wrap gap-2">
 										{post.tags.map((tag) => (
 											<Badge
@@ -98,7 +101,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 							)}
 						</div>
 
-						<p className="text-lg sm:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed font-newsreader font-normal max-w-3xl">
+						<p className="max-w-3xl font-newsreader font-normal text-lg text-neutral-600 leading-relaxed sm:text-xl dark:text-neutral-400">
 							{post.description}
 						</p>
 
@@ -108,7 +111,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 					</div>
 				</div>
 
-				<article className="blog-content max-w-none text-lg sm:text-xl font-newsreader text-neutral-800 dark:text-neutral-200">
+				<article className="blog-content max-w-none font-newsreader text-lg text-neutral-800 sm:text-xl dark:text-neutral-200">
 					<MDXContent />
 				</article>
 			</div>

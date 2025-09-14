@@ -99,7 +99,8 @@ const nextConfig = {
 			},
 			{
 				source: "/aseprite",
-				destination: "https://files.aamira.me/inbox/aseprite-v1.3.14-beta1.zip",
+				destination:
+					"https://files.aamira.me/inbox/aseprite-v1.3.14-beta1.zip",
 				permanent: false,
 			},
 			{
@@ -149,7 +150,8 @@ const nextConfig = {
 			},
 			{
 				source: "/turkey-2025",
-				destination: "/watch/AY4aAI7zzcaOE6Kd3202XudT7k4jIuglQSIBj3UoGu02U",
+				destination:
+					"/watch/AY4aAI7zzcaOE6Kd3202XudT7k4jIuglQSIBj3UoGu02U",
 				permanent: false,
 			},
 			{

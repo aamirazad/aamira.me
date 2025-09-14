@@ -27,14 +27,18 @@ export async function getAllBlogPosts(): Promise<BlogPost[]> {
 
 				try {
 					// Dynamically import the MDX file to get its metadata
-					const mdxModule = await import(`@/content/blog/${slug}.mdx`);
+					const mdxModule = await import(
+						`@/content/blog/${slug}.mdx`
+					);
 					const metadata = mdxModule.metadata;
 
 					return {
 						slug,
 						title: metadata?.title || slug,
 						description: metadata?.description || "",
-						date: metadata?.date || new Date().toISOString().split("T")[0],
+						date:
+							metadata?.date ||
+							new Date().toISOString().split("T")[0],
 						tags: metadata?.tags || [],
 					};
 				} catch (error) {
@@ -45,7 +49,9 @@ export async function getAllBlogPosts(): Promise<BlogPost[]> {
 		);
 
 		// Filter out null values and sort by date
-		const validPosts = posts.filter((post): post is BlogPost => post !== null);
+		const validPosts = posts.filter(
+			(post): post is BlogPost => post !== null,
+		);
 		return validPosts.sort(
 			(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
 		);

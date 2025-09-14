@@ -2,22 +2,22 @@ import Link from "next/link";
 
 export default function Footer() {
 	return (
-		<footer className="mb-16 mt-16 border-t border-neutral-200 dark:border-neutral-800 pt-8">
-			<div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-				<div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
-					<p className="text-neutral-600 dark:text-neutral-400 text-sm">
+		<footer className="mt-16 mb-16 border-neutral-200 border-t pt-8 dark:border-neutral-800">
+			<div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
+				<div className="flex flex-col items-center space-y-2 md:flex-row md:space-x-6 md:space-y-0">
+					<p className="text-neutral-600 text-sm dark:text-neutral-400">
 						© {new Date().getFullYear()} Aamir Azad
 					</p>
 					<div className="flex space-x-4 text-sm">
 						<Link
 							href="/blog"
-							className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+							className="text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
 						>
 							Blog
 						</Link>
 						<a
 							href="https://github.com/aamirazad"
-							className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+							className="text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
@@ -25,7 +25,7 @@ export default function Footer() {
 						</a>
 					</div>
 				</div>
-				<div className="text-neutral-600 dark:text-neutral-400 text-sm"></div>
+				<div className="text-neutral-600 text-sm dark:text-neutral-400"></div>
 			</div>
 		</footer>
 	);

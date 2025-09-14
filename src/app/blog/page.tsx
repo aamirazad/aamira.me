@@ -9,14 +9,14 @@ export default async function BlogPage() {
 	return (
 		<div className="space-y-8">
 			<div className="space-y-4">
-				<h1 className="text-4xl font-bold tracking-tight">Blog</h1>
-				<p className="text-xl text-neutral-600 dark:text-neutral-400">
+				<h1 className="font-bold text-4xl tracking-tight">Blog</h1>
+				<p className="text-neutral-600 text-xl dark:text-neutral-400">
 					Thoughts on technology, learning, and building things.
 				</p>
 			</div>
 
 			{posts.length === 0 ? (
-				<div className="text-center py-12">
+				<div className="py-12 text-center">
 					<p className="text-neutral-600 dark:text-neutral-400">
 						No blog posts yet. Check back soon!
 					</p>
@@ -26,20 +26,25 @@ export default async function BlogPage() {
 					{posts.map((post) => (
 						<article
 							key={post.slug}
-							className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-6 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all group"
+							className="group rounded-lg border border-neutral-200 p-6 transition-all hover:border-neutral-300 dark:border-neutral-800 dark:hover:border-neutral-700"
 						>
 							<div className="space-y-4">
 								<div className="space-y-2">
-									<Link href={`/blog/${post.slug}`} className="inline-block">
-										<h2 className="text-2xl font-semibold group-hover:text-orange-500 transition-colors">
+									<Link
+										href={`/blog/${post.slug}`}
+										className="inline-block"
+									>
+										<h2 className="font-semibold text-2xl transition-colors group-hover:text-orange-500">
 											{post.title}
 										</h2>
 									</Link>
-									<div className="flex items-center gap-4 text-sm text-neutral-600 dark:text-neutral-400">
+									<div className="flex items-center gap-4 text-neutral-600 text-sm dark:text-neutral-400">
 										<div className="flex items-center gap-1">
-											<Calendar className="w-4 h-4" />
+											<Calendar className="h-4 w-4" />
 											<time>
-												{new Date(post.date).toLocaleDateString("en-US", {
+												{new Date(
+													post.date,
+												).toLocaleDateString("en-US", {
 													year: "numeric",
 													month: "long",
 													day: "numeric",
@@ -48,7 +53,7 @@ export default async function BlogPage() {
 										</div>
 										{post.tags && post.tags.length > 0 && (
 											<div className="flex items-center gap-2">
-												<Tag className="w-4 h-4" />
+												<Tag className="h-4 w-4" />
 												<div className="flex gap-1">
 													{post.tags.map((tag) => (
 														<Badge
@@ -64,15 +69,15 @@ export default async function BlogPage() {
 										)}
 									</div>
 								</div>
-								<p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+								<p className="text-neutral-600 leading-relaxed dark:text-neutral-400">
 									{post.description}
 								</p>
 								<Link
 									href={`/blog/${post.slug}`}
-									className="inline-flex items-center gap-1 text-orange-500 hover:text-orange-600 transition-colors text-sm font-medium"
+									className="inline-flex items-center gap-1 font-medium text-orange-500 text-sm transition-colors hover:text-orange-600"
 								>
 									Read more
-									<ArrowUpRight className="w-4 h-4" />
+									<ArrowUpRight className="h-4 w-4" />
 								</Link>
 							</div>
 						</article>

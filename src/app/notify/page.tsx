@@ -27,9 +27,9 @@ export default function JoinGroupForm() {
 
 	if (submitted) {
 		return (
-			<div className="fixed inset-0 z-10 flex items-center justify-center bg-white dark:bg-[#191919] p-4">
-				<div className="w-full max-w-md shadow-lg rounded-lg p-6 text-center bg-white dark:bg-[#191919]">
-					<h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6">
+			<div className="fixed inset-0 z-10 flex items-center justify-center bg-white p-4 dark:bg-[#191919]">
+				<div className="w-full max-w-md rounded-lg bg-white p-6 text-center shadow-lg dark:bg-[#191919]">
+					<h2 className="mb-6 font-bold text-2xl text-gray-800 dark:text-gray-100">
 						Success!
 					</h2>
 					<p className="text-gray-700 dark:text-gray-300">
@@ -41,9 +41,9 @@ export default function JoinGroupForm() {
 	}
 
 	return (
-		<div className="fixed inset-0 z-10 flex items-center justify-center bg-white dark:bg-[#191919] p-4">
-			<div className="w-full max-w-md shadow-lg rounded-lg p-6">
-				<h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 text-center">
+		<div className="fixed inset-0 z-10 flex items-center justify-center bg-white p-4 dark:bg-[#191919]">
+			<div className="w-full max-w-md rounded-lg p-6 shadow-lg">
+				<h2 className="mb-6 text-center font-bold text-2xl text-gray-800 dark:text-gray-100">
 					Subscribe to HASD Notify
 				</h2>
 				<form onSubmit={handleSubmit} className="space-y-5">
@@ -60,7 +60,7 @@ export default function JoinGroupForm() {
 							type="text"
 							placeholder="Your Name"
 							// Added explicit bg/text colors for inputs for better contrast
-							className="w-full border border-gray-300 dark:border-gray-700 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 text-black dark:text-white"
+							className="w-full rounded-md border border-gray-300 bg-white p-2 text-black focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
 						/>
 					</div>
 					<div>
@@ -76,7 +76,7 @@ export default function JoinGroupForm() {
 							type="email"
 							placeholder="you@example.com"
 							// Added explicit bg/text colors for inputs for better contrast
-							className="w-full border border-gray-300 dark:border-gray-700 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 text-black dark:text-white"
+							className="w-full rounded-md border border-gray-300 bg-white p-2 text-black focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
 						/>
 					</div>
 					<div>
@@ -87,7 +87,7 @@ export default function JoinGroupForm() {
 							Join Group
 						</Button>
 					</div>
-					<p className="mt-4 text-center text-gray-500 dark:text-gray-400 text-sm">
+					<p className="mt-4 text-center text-gray-500 text-sm dark:text-gray-400">
 						You can unsubscribe at any time.
 					</p>
 				</form>

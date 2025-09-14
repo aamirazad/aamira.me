@@ -159,7 +159,9 @@ export default function Page({
 		const origError = console.error;
 		const shouldSuppress = (args: unknown[]) =>
 			args.some(
-				(a) => typeof a === "string" && a.includes("getErrorFromHlsErrorData"),
+				(a) =>
+					typeof a === "string" &&
+					a.includes("getErrorFromHlsErrorData"),
 			);
 
 		console.warn = ((...args: unknown[]) => {
@@ -182,10 +184,10 @@ export default function Page({
 
 	return (
 		<>
-			<h2 className="scroll-m-20 text-2xl font-semibold tracking-tight md:mt-8 mt-5 ml-5">
+			<h2 className="mt-5 ml-5 scroll-m-20 font-semibold text-2xl tracking-tight md:mt-8">
 				Trip To Turkey
 			</h2>
-			<p className="leading-7 ml-5">By Aslam Azad</p>
+			<p className="ml-5 leading-7">By Aslam Azad</p>
 			<MuxPlayer
 				ref={playerRef}
 				defaultHiddenCaptions

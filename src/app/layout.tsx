@@ -62,7 +62,7 @@ export default function RootLayout({
 		<html
 			lang="en"
 			className={cn(
-				"text-black bg-white dark:text-white dark:bg-black",
+				"bg-white text-black dark:bg-black dark:text-white",
 				inter.variable,
 				merriweather.variable,
 				newsreader.variable,
@@ -70,8 +70,8 @@ export default function RootLayout({
 			)}
 		>
 			<head></head>
-			<body className="antialiased max-w-6xl mx-auto px-4 mt-8">
-				<main className="flex-auto min-w-0 mt-6 flex flex-col">
+			<body className="mx-auto mt-8 max-w-6xl px-4 antialiased">
+				<main className="mt-6 flex min-w-0 flex-auto flex-col">
 					{/* Rybbit Analytics */}
 					<Script
 						src="/api/script.js"

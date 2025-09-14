@@ -109,8 +109,7 @@ export const projects = [
 		href: "https://school.aamira.me/enlightenment-french-revolution-timeline",
 		text: "Enlightenentment/French Revolution Timeline",
 		description: "An interactive timeline made with Timeline JS",
-		github:
-			"aamirazad/school/tree/main/src/app/enlightenment-french-revolution-timeline",
+		github: "aamirazad/school/tree/main/src/app/enlightenment-french-revolution-timeline",
 	},
 	{
 		href: "https://school.aamira.me/open-source",
