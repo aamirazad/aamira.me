@@ -18,7 +18,7 @@ export default async function Page() {
 					<div className="flex flex-col lg:flex-row items-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-12 h-auto lg:h-36">
 						<Avatar className="size-24 lg:size-32 ring-2 ring-neutral-200 dark:ring-neutral-800">
 							<AvatarImage
-								src="https://files.aamira.me/inbox/7846690e25ca5ecdb6bd3d1ca9b7c800.webp"
+								src="https://files.aamira.me/inbox/headshot.webp"
 								alt="Profile Picture"
 								className="object-cover"
 							/>
