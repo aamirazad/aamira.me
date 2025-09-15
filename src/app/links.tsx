@@ -49,11 +49,18 @@ export const useful = [
 
 export const projects = [
 	{
+		href: "https://track.aamira.me",
+		text: "TrackShelf",
+		description:
+			"Track shelf is an app to manage all the books, movies, and tv shows you watch so that you never forget what about these experiences was special to you.",
+		wip: true,
+		github: "aamirazad/track",
+	},
+	{
 		href: "https://fbla.notion.site/",
 		text: "FBLA Site",
 		description:
 			"A notion backed website to serve as a resource for finding information about FBLA specific activities. Namely, a list of events and their information is hosted on this site.",
-		wip: true,
 	},
 	{
 		href: "https://historyclub.aamira.me/",
@@ -61,7 +68,6 @@ export const projects = [
 		description:
 			"A content heavy application build with astro to host information about the HASD History Club's WW2 Simulation simulation. This game, with very complex rules, will be available for others to reference on this pretty website.",
 		github: "aamirazad/history-club",
-		wip: true,
 	},
 	{
 		href: "https://jobs.aamira.me/",
@@ -83,7 +89,6 @@ export const projects = [
 		text: "Homelab Connector",
 		description:
 			"A lighting fast full stack nextjs app connecting many self hosted services including paperless-ngx, immich, and whishper with authentication and support for many different use cases.",
-		wip: true,
 		github: "aamirazad/homelab-connector",
 	},
 	{

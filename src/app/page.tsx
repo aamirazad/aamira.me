@@ -16,7 +16,7 @@ export default async function Page() {
 			<section className="flex justify-center">
 				<div className="w-full max-w-4xl">
 					<div className="flex h-auto flex-col items-center space-y-8 lg:h-36 lg:flex-row lg:items-start lg:space-x-12 lg:space-y-0">
-						<Avatar className="size-24 ring-2 ring-neutral-200 lg:size-32 dark:ring-neutral-800">
+						{/* <Avatar className="size-24 ring-2 ring-neutral-200 lg:size-32 dark:ring-neutral-800">
 							<AvatarImage
 								src="https://files.aamira.me/inbox/headshot.webp"
 								alt="Profile Picture"
@@ -25,7 +25,7 @@ export default async function Page() {
 							<AvatarFallback>
 								<div className="font-bold text-2xl">AA</div>
 							</AvatarFallback>
-						</Avatar>
+						</Avatar> */}
 						<div className="text-center lg:text-left">
 							<h1 className="mb-4 scroll-m-20 font-bold text-4xl tracking-tight lg:text-5xl">
 								Aamir Azad
