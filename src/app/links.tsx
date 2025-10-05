@@ -9,6 +9,7 @@ import {
 	Kanban,
 	Mails,
 	NotebookText,
+	Rss,
 	Video,
 } from "lucide-react";
 
@@ -161,9 +162,9 @@ export const homelab = [
 		icon: () => <File />,
 	},
 	{
-		text: "Wakapi",
-		href: "https://waka.aamira.me/",
-		icon: () => <Kanban />,
+		text: "FreshRSS",
+		href: "https://news.aamira.me/",
+		icon: () => <Rss />,
 	},
 	{
 		text: "Actual",
@@ -179,5 +180,10 @@ export const homelab = [
 		text: "Code Server",
 		href: "https://dev.aamira.me/",
 		icon: () => <Code />,
+	},
+	{
+		text: "Wakapi",
+		href: "https://waka.aamira.me/",
+		icon: () => <Kanban />,
 	},
 ];
