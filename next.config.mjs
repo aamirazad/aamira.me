@@ -21,7 +21,7 @@ const nextConfig = {
 			},
 			{
 				source: "/resume",
-				destination: "https://files.aamira.me/resume.pdf",
+				destination: "https://files.aamirazad.com/resume.pdf",
 				permanent: false,
 			},
 			{
@@ -58,31 +58,31 @@ const nextConfig = {
 			{
 				source: "/outstanding-academic",
 				destination:
-					"https://papers.aamira.me/share/wyABSOjNExeQi4nBVfS10rMH4LBkvc8ppvxZdoroEfNY7V9ECF",
+					"https://papers.aamirazad.com/share/wyABSOjNExeQi4nBVfS10rMH4LBkvc8ppvxZdoroEfNY7V9ECF",
 				permanent: false,
 			},
 			{
 				source: "/principals-award",
 				destination:
-					"https://papers.aamira.me/share/FFrlAJyx3DgTU7N3eFqW9mGKY1NukmXZNmQv4ztosV4Su7ZFhZ",
+					"https://papers.aamirazad.com/share/FFrlAJyx3DgTU7N3eFqW9mGKY1NukmXZNmQv4ztosV4Su7ZFhZ",
 				permanent: false,
 			},
 			{
 				source: "/perfect-attendance-2023",
 				destination:
-					"https://papers.aamira.me/share/PXPJTBMvauXaHVqwyqHtHhNF18n4ayakr8Uu0dUsOVmaArbyOd",
+					"https://papers.aamirazad.com/share/PXPJTBMvauXaHVqwyqHtHhNF18n4ayakr8Uu0dUsOVmaArbyOd",
 				permanent: false,
 			},
 			{
 				source: "/presidents-award",
 				destination:
-					"https://papers.aamira.me/share/hAZ5KImbXUlB3Ul03zV5YtSxY4Oo8XjGQNJk0b7SXvqLyt7yFj",
+					"https://papers.aamirazad.com/share/hAZ5KImbXUlB3Ul03zV5YtSxY4Oo8XjGQNJk0b7SXvqLyt7yFj",
 				permanent: false,
 			},
 			{
 				source: "/american-citizenship-award",
 				destination:
-					"https://papers.aamira.me/share/hWSsF4LSg5DJ4DaWQCoTi2a49X2pEodAeJSPqhHB5ER2NOA9qr",
+					"https://papers.aamirazad.com/share/hWSsF4LSg5DJ4DaWQCoTi2a49X2pEodAeJSPqhHB5ER2NOA9qr",
 				permanent: false,
 			},
 			{
@@ -100,7 +100,7 @@ const nextConfig = {
 			{
 				source: "/aseprite",
 				destination:
-					"https://files.aamira.me/inbox/aseprite-v1.3.14-beta1.zip",
+					"https://files.aamirazad.com/inbox/aseprite-v1.3.14-beta1.zip",
 				permanent: false,
 			},
 			{
@@ -139,13 +139,13 @@ const nextConfig = {
 			},
 			{
 				source: "/chem-textbook",
-				destination: "https://cdn.aamira.me/Zumdahl%20Textbook.pdf",
+				destination: "https://cdn.aamirazad.com/Zumdahl%20Textbook.pdf",
 				permanent: false,
 			},
 			{
 				source: "/fbla-2024-gc-archive",
 				destination:
-					"https://files.aamira.me/inbox/FBLA%202024-2025%20GC%20Stream.html",
+					"https://files.aamirazad.com/inbox/FBLA%202024-2025%20GC%20Stream.html",
 				permanent: false,
 			},
 			{
@@ -172,11 +172,11 @@ const nextConfig = {
 		return [
 			{
 				source: "/api/script.js",
-				destination: `https://analytics.aamira.me/api/script.js`,
+				destination: `https://analytics.aamirazad.com/api/script.js`,
 			},
 			{
 				source: "/api/track",
-				destination: `https://analytics.aamira.me/api/track`,
+				destination: `https://analytics.aamirazad.com/api/track`,
 			},
 		];
 	},

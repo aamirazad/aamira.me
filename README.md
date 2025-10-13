@@ -1,3 +1,3 @@
-# aamira.me
+# aamirazad.com
 
-This is the source code for my react personal website, [aamira.me](https://aamira.me). It is also how my shortened links work.
+This is the source code for my personal website, [aamirazad.com](https://aamirazad.com). This site also contains my redirect engine.

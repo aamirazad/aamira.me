@@ -198,7 +198,7 @@ export default function Page({
 				metadata={{
 					video_id: slug,
 					video_title: "Turkey Trip",
-					player_name: "aamira.me",
+					player_name: "aamirazad.com",
 				}}
 				onTimeUpdate={handleTimeUpdate}
 				onEnded={handleEnded}

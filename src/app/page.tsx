@@ -18,7 +18,7 @@ export default async function Page() {
 					<div className="flex h-auto flex-col items-center space-y-8 lg:h-36 lg:flex-row lg:items-start lg:space-x-12 lg:space-y-0">
 						{/* <Avatar className="size-24 ring-2 ring-neutral-200 lg:size-32 dark:ring-neutral-800">
 							<AvatarImage
-								src="https://files.aamira.me/inbox/headshot.webp"
+								src="https://files.aamirazad.com/inbox/headshot.webp"
 								alt="Profile Picture"
 								className="object-cover"
 							/>
@@ -198,7 +198,7 @@ export default async function Page() {
 						many intensive services with{" "}
 						<a
 							className="underline transition-colors hover:text-orange-500"
-							href="https://status.aamira.me/"
+							href="https://status.aamirazad.com/"
 							rel="noopener noreferrer"
 							target="_blank"
 						>
